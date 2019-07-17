@@ -10,6 +10,9 @@ A set of gulp 4 tasks with JS transpilation, webpack, SVG Sprites, minification 
 * JavaScript transpilation with Babel and minification
 * SCSS compilation with minification and sourcemaps
 
+# Vulnerable because of dependencies
+some of the npm dependencies are outdated and have security risks. I will update them later. Use it at your own risk.
+
 # Installation
 * clone (as a submodule?) or copy the files into your root directory
 * run `yarn install`
@@ -83,6 +86,14 @@ function asset_path($filename, $path = false)
   }
 }
 ```
+
+# Automatic JS injection with html-webpack-plugin
+
+Needs a template file wich is defined in config.js at config.paths.templates.inject,
+and a destination filename which is
+filename: '../../views/main.tpl', in my case.
+Webpack reads the template file, injects the code and writes out the file to the destination.
+
 # Todo
  * needs cleanup in config.js 
  * add better documentation
