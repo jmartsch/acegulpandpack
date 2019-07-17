@@ -1,0 +1,173 @@
+{
+  "dist": {
+    "img": "dist/assets/img/",
+    "cssimgRoot": "/assets/img/",
+    "dist": "dist/",
+    "base": "dist/",
+    "markup": "dist/site/templates/",
+    "assets": "dist/site/templates/assets/",
+    "browserSyncDir": "dist/",
+    "css": "dist/site/templates/assets/css/",
+    "js": "dist/site/templates/assets/js/",
+    "fonts": "dist/site/templates/assets/fonts/",
+    "cssimg": "dist/site/templates/assets/img/",
+    "bitmaps": "dist/site/templates/assets/img/bitmaps/",
+    "vectors": "dist/site/templates/assets/img/",
+    "contentimage": "dist/site/templates/assets/img/",
+    "webpackassets": "site/templates/assets/",
+    "webpackpublic": "dist/"
+  },
+  "revManifest": {
+    "path":"dist/site/templates/assets/rev-manifest.json",
+    "opts": {
+      "merge": false
+    }
+  },
+  "revReplace": {
+    "opts": {
+      "replaceInExtensions": [
+        ".css"
+      ]
+    }
+  },
+  "browsersync": {
+    "openbrowser": false,
+    "port": 3000,
+    "https": true,
+    "proxy": "https://project.localhost"
+  },
+  "minify": {
+    "images": {
+      "svgoPlugins": [
+        {
+          "cleanupIDs": false
+        },
+        {
+          "removeComments": true
+        },
+        {
+          "removeViewBox": false
+        },
+        {
+          "removeDesc": true
+        },
+        {
+          "removeUselessDefs": false
+        },
+        {
+          "removeDoctype": true
+        },
+        {
+          "removeEmptyText": true
+        },
+        {
+          "removeUnknownsAndDefaults": true
+        },
+        {
+          "removeEmptyContainers": true
+        },
+        {
+          "collapseGroups": true
+        },
+        {
+          "removeUselessStrokeAndFill": true
+        },
+        {
+          "convertStyleToAttrs": true
+        }
+      ],
+      "optimizationLevel": 3,
+      "pngquant": {
+        "quality": "75-88",
+        "speed": 4
+      },
+      "progressive": true,
+      "interlaced": true
+    },
+    "javascript": {
+      "options": {
+        "mangle": false
+      }
+    }
+  },
+  "src": {
+    "base": "src/",
+    "style": "src/style/",
+    "template": "src/template/",
+    "js": "src/js/",
+    "scripts": "src/scripts",
+    "structure": "src/structure/",
+    "structureFilename": "views/website.twig",
+    "fonts": "src/fonts/",
+    "images": {
+      "base": "src/img/",
+      "bitmapSprite": {
+        "files": "src/img/bitmapSprite-assets/",
+        "name": "sprite.png"
+      },
+      "vectorSprite": {
+        "files": "src/img/vectorSprite-assets/",
+        "name": "vector-sprite.svg",
+        "symbolName": "symbol-sprite.svg",
+        "maxHeight": 30,
+        "maxWidth": 30,
+        "padding": 0
+      },
+      "bitmaps": "src/img/bitmapSingle-assets/",
+      "vectors": "src/img/vectorSingle-assets/"
+    },
+    "contentimage": "src/img/htmlimages/",
+    "system": "src/.system/",
+    "jsEntryPoints": {
+      "main": "./src/js/main.js"
+    }
+  },
+  "templatePath": {
+    "root": "./",
+    "css": "assets/css/",
+    "js": "assets/js/",
+    "fonts": "assets/fonts/",
+    "cssimage": "assets/img/",
+    "contentimage": "img/"
+  },
+  "css": {
+    "spacer": "20px",
+    "baseFontSize": "16px"
+  },
+  "files": {
+    "jsCopy": [],
+    "jsCombine": {
+      "files": [],
+      "filename": "scripts.js"
+    },
+    "fonts": [
+      "src/fonts/**"
+    ],
+    "launch": [
+      {
+        "src": "favicons/**",
+        "dest": "assets/img/system/"
+      },
+      {
+        "src": "facebook-og-image.jpg",
+        "dest": "assets/img/system/"
+      },
+      {
+        "src": "twitter-og-image.jpg",
+        "dest": "assets/img/system/"
+      },
+      {
+        "src": ".htaccess",
+        "dest": ""
+      },
+      {
+        "src": "404.html",
+        "dest": ""
+      },
+      {
+        "src": "robots.txt",
+        "dest": ""
+      }
+    ]
+  }
+}
