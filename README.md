@@ -10,21 +10,29 @@ A set of gulp 4 tasks with JS transpilation, webpack, SVG Sprites, minification 
 * JavaScript transpilation with Babel and minification
 * SCSS compilation with minification and sourcemaps
 
-# Vulnerable because of dependencies
-some of the npm dependencies are outdated and have security risks. I will update them later. Use it at your own risk.
+### Requirements
+Make sure all dependencies have been installed before moving on:
+
+* [yarn](https://yarnpkg.com/lang/en/) or [npm](https://www.npmjs.com/get-npm)
+* [Node.js](https://nodejs.org/en/download/) >= 8.16.0
+* [Gulp](http://gulpjs.com/)
 
 # Installation
-* clone (as a submodule?) or copy the files into your root directory
-* run `yarn install`
-* modify paths and everything else to your likings in the file `gulpfile.babel.js/config.js`
-* adjust target browsers in .browserslist.rc
-* adjust eslint settings in .eslint.rc
+- clone (as a submodule?) or copy the files into your root directory
+- `yarn` or `npm install` to install dependencies
+- modify paths and everything else to your likings in the file `gulpfile.babel.js/config.js`
+- adjust target browsers in .browserslist.rc
+- adjust eslint settings in .eslint.rc
+
+
 
 # Opiniated
-This set of tools is very opiniated, because I did it my way like Frank Sinatra :)
-uses cross-env because I work on Windows 
-sourcemaps and stylelint is the same in source and production
-uses src and dist directories with default settings but you can change them 
+This set of tools is very opinionated, because I did it my way like Frank Sinatra :)
+Uses cross-env because Windows handles node environment variables differently.
+
+Sourcemaps and stylelint settings are the same for source and production.
+
+Uses src and dist directories with default settings but you can change them. 
 
 ## Tasks
 You run the different tasks with `npm run taskname`.
