@@ -26,8 +26,8 @@ Make sure all dependencies have been installed before moving on:
 
 
 
-# Opiniated
-This set of tools is very opinionated, because I did it my way like Frank Sinatra :)
+# Opinionated
+This set of tools is very opinionated, because I did it my way, just like Frank Sinatra :)
 Uses cross-env because Windows handles node environment variables differently.
 
 Sourcemaps and stylelint settings are the same for source and production.
