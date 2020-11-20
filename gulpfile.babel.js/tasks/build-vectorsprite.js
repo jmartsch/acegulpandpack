@@ -6,8 +6,7 @@
 // Dependencies
 import {
   src,
-  dest,
-  series
+  dest
 } from 'gulp';
 import plumber from 'gulp-plumber';
 
@@ -26,7 +25,7 @@ import {
 export function buildVectorSpriteTask() {
   return src(config.paths.images.vectorSprite)
     .pipe(debug({
-      title: 'unicorn:'
+      title: 'svgSprite:'
     }))
 
     .pipe(plumber())
@@ -38,12 +37,12 @@ export function buildVectorSpriteTask() {
     .pipe(svgSprite(
       {
         shape: {
-          dimension: {  // Set maximum dimensions
-            maxWidth: config.images.vectorSprite.maxWidth,
-            maxHeight: config.images.vectorSprite.maxHeight
+          dimension : {  // Set maximum dimensions
+            maxWidth : config.images.vectorSprite.maxWidth,
+            maxHeight : config.images.vectorSprite.maxHeight
           },
-          spacing: { // Add padding
-            padding: config.images.vectorSprite.padding
+          spacing : { // Add padding
+            padding : config.images.vectorSprite.padding
           },
           dest: config.paths.images.dest
         },
@@ -51,9 +50,9 @@ export function buildVectorSpriteTask() {
           view: {  // Activate the «view» mode
             sprite: config.images.vectorSprite.name,
             dest: config.paths.images.dest,
-            bust: false,
+            bust : false,
             prefix: '%%svg',
-            render: {
+            render : {
               css: true, // CSS output option for icon sizing
               scss: false // SCSS output option for icon sizing
               // scss : {
@@ -62,7 +61,7 @@ export function buildVectorSpriteTask() {
               // }
             }
           },
-          symbol: {
+          symbol : {
             sprite: config.images.vectorSprite.symbolName,
             dest: config.paths.images.dest
           }
@@ -88,5 +87,3 @@ export const buildSymbolCleanupTask = () => {
     }))
     .pipe(dest('./'));
 };
-
-export const buildSvgSprite = series(buildVectorSpriteTask, buildSymbolCleanupTask);
