@@ -4,7 +4,10 @@
  */
 
 // Dependencies
-import { src, dest, parallel, series } from 'gulp';
+import {
+  src,
+  dest
+} from 'gulp';
 import plumber from 'gulp-plumber';
 import changed from 'gulp-changed';
 import errorHandler from '../util/errorHandler.js';
@@ -31,7 +34,7 @@ export function deleteRevvedFiles(callback) {
   callback();
 }
 
-export function deleleteRevManifest(callback) {
+export function deleleteRevManifest(callback){
   if (fs.existsSync(config.paths.revManifest.path)) {
     return del(config.paths.revManifest.path);
   }
@@ -48,5 +51,3 @@ export function rev() {
     .pipe(revAll.manifestFile())
     .pipe(dest('./'));
 }
-
-export const revClean = series(deleteRevvedFiles, deleleteRevManifest);
