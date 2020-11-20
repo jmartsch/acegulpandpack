@@ -13,6 +13,6 @@ import { config } from '../config';
 // Task
 export function copy() {
   return src(config.paths.copy.src)
-    .pipe(changed(config.paths.copy.dest))
+    // .pipe(changed(config.paths.copy.dest))
     .pipe(dest(config.paths.copy.dest));
 }
