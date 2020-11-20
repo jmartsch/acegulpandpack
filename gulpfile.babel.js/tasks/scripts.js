@@ -5,8 +5,6 @@
 
 // Dependencies
 import { src, dest, series } from 'gulp';
-import gulpif from 'gulp-if';
-// import babel from 'gulp-babel';
 import webpack from 'webpack';
 import gulpWebpack from 'webpack-stream';
 import gulpEslint from 'gulp-eslint';
