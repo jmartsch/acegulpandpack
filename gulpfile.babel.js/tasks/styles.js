@@ -23,8 +23,8 @@ import { config, isProd } from '../config';
 
 export function scss() {
   return src(config.paths.styles.src)
-    .pipe(plumber({ errorHandler }))
-    .pipe(gulpif(isProd, sourcemaps.init()))
+    .pipe(plumber({errorHandler}))
+    .pipe(gulpif(isProd, sourcemaps.init() ))
     .pipe(sassGlob())
     .pipe(sass({
       includePaths: [
@@ -32,8 +32,8 @@ export function scss() {
       ],
       outputStyle: 'compressed'
     }))
-    .pipe(postcss([autoprefixer()]))
-    .pipe(gulpif(isProd, sourcemaps.write('.')))
+    // .pipe(postcss())
+    .pipe(gulpif(isProd, sourcemaps.write('.') ))
     .pipe(dest(config.paths.styles.dest))
     .pipe(browserSync.stream());
 }
@@ -46,11 +46,3 @@ export function stylelint() {
       syntax: 'scss'
     }));
 }
-
-if (config.stylelint) {
-  styles = series(stylelint, scss);
-}
-else {
-  styles = scss;
-}
-export var styles;
