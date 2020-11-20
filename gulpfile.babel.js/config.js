@@ -132,7 +132,7 @@ export const config = {
     },
     templates: {
       src: 'src/structure/**/*.{twig,html,ejs,tpl}',
-      inject: 'src/structure/views/main.ejs',
+      inject: 'src/structure/views/scripts.html',
       watch: ['src/templates/**/*.{twig,html,ejs,tpl}', 'dist/site/templates/**/*.{twig,html,ejs,tpl}', 'src/structure/**/*.{twig,html,ejs,tpl}'],
       compile: ['src/structure/**/*.{twig,ejs,tpl}'],
       modules: 'src/modules/**/*.{twig,html,ejs}',
