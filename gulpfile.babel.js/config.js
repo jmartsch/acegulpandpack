@@ -5,7 +5,7 @@
 // Paths
 
 export const config = {
-  stylelint: false,
+  stylelint: true,
   browserSyncConfig: {
     ghostMode: {
       clicks: true,
@@ -128,7 +128,7 @@ export const config = {
       src: './src/scripts/main.js',
       watch: 'src/scripts/**/*.js',
       modules: 'src/modules/**/*.js',
-      dest: 'dist/site/templates/assets/js',
+      dest: 'dist/js',
     },
     templates: {
       src: 'src/structure/**/*.{twig,html,ejs,tpl}',

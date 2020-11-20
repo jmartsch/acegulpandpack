@@ -50,9 +50,7 @@ import {minifyImages} from './tasks/minify-images';
 import {rev, deleteRevvedFiles, deleleteRevManifest} from './tasks/rev';
 
 // Config
-import {
-  config
-} from './config';
+import {config} from './config';
 
 // define aliases
 export const buildSvgSprite = series(buildVectorSpriteTask, buildSymbolCleanupTask);
@@ -115,5 +113,6 @@ exports.copy = copy;
 exports.scripts = scripts;
 exports.minifyImages = minifyImages;
 exports.copyImages = copyImages;
+exports.stylelint = stylelint;
 
 export default dev;
