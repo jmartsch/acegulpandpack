@@ -5,7 +5,7 @@
 // Paths
 
 export const config = {
-  stylelint: true,
+  stylelint: false,
   browserSyncConfig: {
     ghostMode: {
       clicks: true,
