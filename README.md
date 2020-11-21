@@ -3,7 +3,7 @@ A set of gulp 4 tasks with JS transpilation, webpack, SVG Sprites, minification 
 
 # What is inside?
 * Gulp 4
-* Webpack with Babel
+* Webpack 5 with Babel
 * SVG Sprites with minification
 * Browsersync with proxy for existing webservers
 * File revving
@@ -106,3 +106,22 @@ Webpack reads the template file, injects the code and writes out the file to the
  * needs cleanup in config.js 
  * add better documentation
  * add generic code to get revved filename
+
+#Again, why use both Webpack and Gulp?
+Taken from https://css-tricks.com/combine-webpack-gulp-4/
+
+Static File Handling
+Gulp can handle static assets better than Webpack. The Copy Webpack Plugin can also copy files from your source to your build folder but when it comes to watching file deletion or changes like overriding an image, gulp.watch is a safer bet.
+
+Server Environment
+Webpack also comes with a local server environment via Webpack Dev Server but using BrowserSync has some features you might not want to miss:
+
+CSS/HTML/image injection for non-app projects
+multiple device testing out of the box
+includes an admin panel for more control
+bandwidth throttling for speed and loading tests
+Compilation Time
+As seen in this post on GitHub Sass gets processed by node-sass much quicker than by Webpack's combination of sass-loader, css-loader and extract-text-webpack-plugin.
+
+Convenience
+In Webpack, you have to import your CSS and SVG files for instance into JavaScript to process them which can be quite tricky and confusing sometimes. With Gulp, you don't need to adjust your workflow.

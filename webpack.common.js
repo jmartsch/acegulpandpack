@@ -3,9 +3,13 @@
  */
 
 // Dependencies
-import webpack from 'webpack';
+const webpack = require('webpack');
 import HtmlWebpackPlugin from 'html-webpack-plugin';
-import CleanWebpackPlugin from 'clean-webpack-plugin';
+import ScriptExtHtmlWebpackPlugin from 'script-ext-html-webpack-plugin';
+const  CleanWebpackPlugin = require('clean-webpack-plugin');
+
+// const HardSourceWebpackPlugin = require('hard-source-webpack-plugin');
+
 import path from 'path';
 
 // Config
@@ -14,13 +18,14 @@ import {
 } from './gulpfile.babel.js/config';
 
 // Plugins
-var WebpackNotifierPlugin = require('webpack-notifier');
+// const WebpackNotifierPlugin = require('webpack-notifier');
 
 const webpackConfig = {
-
-  mode: process.env.NODE_ENV ? 'production' : 'development',
-
+  mode: process.env.NODE_ENV === 'production' ? 'production' : 'development',
+  performance: {hints: false},
   entry: {
+    // klaroConfig: './src/scripts/klaroConfig.js',
+    // klaro: './src/scripts/klaro.js',
     main: config.paths.scripts.src
   },
   output: {
@@ -30,16 +35,18 @@ const webpackConfig = {
   },
 
   optimization: {
-    // runtimeChunk: 'single',
-    splitChunks: {
-      cacheGroups: {
-        vendor: {
-          test: /[\\/]node_modules[\\/]/,
-          name: 'vendor',
-          chunks: 'all'
-        }
-      }
-    }
+    runtimeChunk: 'single',
+    chunkIds: 'named',
+    moduleIds: 'deterministic',
+    // splitChunks: {
+    //   cacheGroups: {
+    //     vendor: {
+    //       test: /[\\/]node_modules[\\/]/,
+    //       name: 'vendor',
+    //       chunks: 'all'
+    //     }
+    //   }
+    // }
   },
 
   module: {
@@ -67,50 +74,45 @@ const webpackConfig = {
   },
   resolve: {
     extensions: ['.webpack-loader.js', '.web-loader.js', '.loader.js', '.js', '.jsx'],
-    modules: [
-      path.resolve(__dirname, 'node_modules')
-    ]
+    modules: [path.resolve(__dirname, 'node_modules')],
+    alias: {
+      vue: 'vue/dist/vue.esm-bundler.js'
+    }
   },
   plugins: [
     // ensure that we get a production build of any dependencies
-    new CleanWebpackPlugin(config.paths.scripts.dest),
-    new webpack.DefinePlugin({
-      'process.env.NODE_ENV': '"production"'
-    }),
+    new CleanWebpackPlugin(),
     new webpack.ProvidePlugin({
       $: 'jquery',
       jQuery: 'jquery',
-      'window.jQuery': 'jquery'
+      'window.jQuery': 'jquery',
+      klaro: 'klaro',
+      'window.klaro': 'klaro'
     }),
     new HtmlWebpackPlugin({
-      filename: '../../views/main.tpl',
+      filename: '../../views/scripts.html',
       template: config.paths.templates.inject,
       inject: true,
       hash: false,
-      alwaysWriteToDisk: true,
+      alwaysWriteToDisk: false,
       minify: {
         removeComments: true,
         collapseWhitespace: false,
         removeAttributeQuotes: false
       },
-      chunksSortMode: 'dependency'
+      // chunksSortMode: 'dependency'
     }),
-    new webpack.HashedModuleIdsPlugin(),
-    new WebpackNotifierPlugin({
-      skipFirstNotification: true
-    })
+    new webpack.DefinePlugin({
+      __VUE_OPTIONS_API__: false,
+      __VUE_PROD_DEVTOOLS__: false,
+    }),
+    new ScriptExtHtmlWebpackPlugin({
+      defaultAttribute: 'async'
+    }),
   ]
 
 };
 
-if (process.env.NODE_ENV === 'production') {
-  // console.log('Welcome to production');
-  webpackConfig.devtool = 'source-map';
-}
-if (process.env.NODE_ENV === 'development') {
-  // console.log('Webpack development config');
-  webpackConfig.devtool = 'source-map';
-
-}
+console.log('webpack mode: ' + webpackConfig.mode);
 
 module.exports = webpackConfig;
