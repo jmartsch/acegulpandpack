@@ -95,11 +95,10 @@ function asset_path($filename, $path = false)
 }
 ```
 
-# Automatic JS injection with html-webpack-plugin
+# Automatic JavaScript injection with html-webpack-plugin
 
-Needs a template file wich is defined in config.js at config.paths.templates.inject,
-and a destination filename which is
-filename: '../../views/main.tpl', in my case.
+Generates a "script.html" file in config.paths.templates.dest which can be included server side to include the JavaScripts in your website.
+The template for this injection is an empty .html file which is defined in `config.js` at config.paths.templates.inject,
 Webpack reads the template file, injects the code and writes out the file to the destination.
 
 # Todo
