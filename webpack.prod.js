@@ -22,9 +22,7 @@ module.exports = merge(common, {
     minimizer: [
       new TerserPlugin({
         terserOptions: {
-          cache: true,
           parallel: true,
-          sourceMap: false,
           compress: {
             drop_console: true,
           }
