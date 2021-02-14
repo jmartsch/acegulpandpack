@@ -116,6 +116,5 @@ exports.scripts = scripts;
 exports.minifyImages = minifyImages;
 exports.copyImages = copyImages;
 exports.stylelint = stylelint;
-exports.clean = clean;
 
 export default dev;
