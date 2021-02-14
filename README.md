@@ -50,6 +50,7 @@ Here are the different available tasks
   * minifyImages
   * fonts
   * buildSvgSprite
+  * clean
 * build - builds this thingy - uses filename revving
 * deploy is not being used
 
@@ -66,7 +67,7 @@ A manifest file is generated that maps the original name to the hashed file name
 
 Here is an example code (for ProcessWire) that I use to get the revved filename. A general example will be added later.
 
-It looks if the manifest file exists and returns the revved filename. 
+It looks if the rev-manifest.json file exists and returns the revved filename.
 
 If the manifest does not exist, the original filename is returned.
 
