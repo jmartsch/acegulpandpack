@@ -9,6 +9,7 @@ A set of gulp 4 tasks with JS transpilation, webpack, SVG Sprites, minification,
 * File revving
 * JavaScript transpilation with Babel and minification
 * SCSS compilation with minification and sourcemaps
+* Critcal path CSS generation
 
 ### Requirements
 Make sure all dependencies have been installed before moving on:
