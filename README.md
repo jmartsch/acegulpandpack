@@ -1,9 +1,9 @@
-# Acegulp 4
-A set of gulp 4 tasks with JS transpilation, webpack, SVG Sprites, minification, critcal path CSS generation and file revving
+# AceGulpAndPack
+A mix of gulp and webpack tasks with JS transpilation, SVG Sprite generation, minification, critcal path CSS generation and file revving
 
 # What is inside?
 * Gulp 4
-* Webpack 5 with Babel
+* Webpack 5 with Babel transpilation
 * SVG Sprites with minification
 * Browsersync with proxy for existing webservers
 * File revving
@@ -25,8 +25,6 @@ Make sure all dependencies have been installed before moving on:
 - adjust target browsers in .browserslist.rc
 - adjust eslint settings in .eslint.rc
 
-
-
 # Opinionated
 This set of tools is very opinionated, because I did it my way, just like Frank Sinatra :)
 Uses cross-env because Windows handles node environment variables differently.
@@ -44,16 +42,14 @@ Here are the different available tasks
 * start - starts the default gulp task
 * watch -  watches files and triggers compiling if they are changed - watch out: rev manifest is still there and outdated files could be served
 * dev - First cleans the rev manifest and copies and compiles files then watches the files. Following tasks are being run:
-
+  * clean
   * styles
   * scripts
   * templates
   * minifyImages
   * fonts
   * buildSvgSprite
-  * clean
 * build - builds this thingy - uses filename revving
-* deploy is not being used
 
 ## File revving
 What is file revving ? 
