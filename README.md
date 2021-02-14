@@ -1,5 +1,5 @@
 # Acegulp 4
-A set of gulp 4 tasks with JS transpilation, webpack, SVG Sprites, minification and file revving
+A set of gulp 4 tasks with JS transpilation, webpack, SVG Sprites, minification, critcal path CSS generation and file revving
 
 # What is inside?
 * Gulp 4
@@ -100,6 +100,20 @@ function asset_path($filename, $path = false)
 Generates a "script.html" file in config.paths.templates.dest which can be included server side to include the JavaScripts in your website.
 The template for this injection is an empty .html file which is defined in `config.js` at config.paths.templates.inject,
 Webpack reads the template file, injects the code and writes out the file to the destination.
+
+# Critcal path CSS generation
+Critical CSS is a technique that extracts the CSS for above-the-fold content in order to render content to the user as fast as possible.
+
+For more information read https://web.dev/extract-critical-css/
+
+At the build step critical CSS is generated and saved minified in your CSS directory.
+
+## Configure settings for critical CSS
+
+in the config.js file under criticalCssConfig insert your local project URL in `baseUrl`.
+
+## How does it work?
+The `critical` node module opens a headless browser, renders the output at the dimensions you specified and pulls all the required CSS into a file.
 
 # Todo
  * needs cleanup in config.js 

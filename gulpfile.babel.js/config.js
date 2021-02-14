@@ -169,4 +169,28 @@ export const config = {
   }
 };
 
+config.criticalCssConfig = {
+  concurrency: 5, //this is the number of tasks that run concurrently, large numbers could lead to errors / memory leaks
+  baseUrl: 'http://myproject.localhost',
+  suffix: '_critical.min.css',
+  criticalWidth: 1920,
+  criticalHeight: 1440,
+  // ampPrefix: 'amp_',
+  // ampCriticalWidth: 600,
+  // ampCriticalHeight: 19200,
+  criticalIgnore: [
+    '@font-face'
+  ],
+  pages: [
+    {
+      url: '/',
+      template: 'home' // the final file name will be nameoftemplate+suffix, for example home_critical.min.css
+    },
+    // {
+    //   url: '/products/',
+    //   template: 'products'
+    // },
+  ]
+};
+
 export const isProd = process.env.NODE_ENV === 'production';
