@@ -48,6 +48,7 @@ import {minifyImages} from './tasks/minify-images';
 
 // import { deploy } from './tasks/deploy';
 import {rev, deleteRevvedFiles, deleleteRevManifest} from './tasks/rev';
+import {criticalcss} from './tasks/criticalcss';
 
 // Config
 import {config} from './config';
@@ -81,8 +82,9 @@ export const build = series(
   // this task builds all assets and revisions them afterwards
   // read more about revving in the readme
   revClean,
-  parallel(styles, scripts,  templates, minifyImages, fonts, buildSvgSprite),
-  rev
+  parallel(styles, scripts, templates, minifyImages, fonts, buildSvgSprite),
+  rev,
+  criticalcss
 );
 
 export const dev = series(
