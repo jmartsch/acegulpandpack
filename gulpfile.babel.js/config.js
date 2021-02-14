@@ -117,6 +117,12 @@ export const config = {
     dest: './dist/',
     deploy: './dist/**/*',
     assets: 'dist/site/templates/assets/',
+    clean: [
+      'dist/site/templates/assets/css/*',
+      'dist/site/templates/assets/img/*',
+      'dist/site/templates/assets/rev-manifest.json',
+      // '!dist/site/templates/assets/img/flags' // here you can exlude directories
+    ],
     styles: {
       src: 'src/styles/*.scss',
       watch: 'src/styles/**/*.scss',

@@ -12,5 +12,5 @@ import { config } from '../config';
 
 // Task
 export function clean() {
-  return del( config.paths.assets );
+  return del( config.paths.clean );
 }
